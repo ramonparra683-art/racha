@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡365 Días de Racha Contigo! 🔥❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a0b1c 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efecto de corazones flotantes de fondo */
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(254, 44, 85, 0.4);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(25, 25, 35, 0.7);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(254, 44, 85, 0.3);
+            border-radius: 25px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(254, 44, 85, 0.2);
+        }
+
+        /* Insignia de TikTok */
+        .streak-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #FE2C55, #25F4EE);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        h1 span {
+            color: #25F4EE;
+        }
+
+        p {
+            color: #d1d1d1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .stats-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-box h2 {
+            font-size: 2.5rem;
+            color: #FE2C55;
+            font-weight: 700;
+        }
+
+        .stats-box p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .btn {
+            background: #FE2C55;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.4);
+        }
+
+        .btn:hover {
+            background: #e02045;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(254, 44, 85, 0.6);
+        }
+
+        /* Mensaje secreto oculto inicialmente */
+        .secret-message {
+            margin-top: 20px;
+            background: rgba(37, 244, 238, 0.1);
+            border: 1px dashed #25F4EE;
+            padding: 15px;
+            border-radius: 12px;
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .secret-message p {
+            color: #25F4EE;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fondo con corazones animados -->
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <div class="container">
+        <div class="streak-badge">
+            🔥 365 Días de Racha
+        </div>
+
+        <h1>¡Lo logramos, <span>Amor</span>!</h1>
+        
+        <p>Un año entero mandándonos fueguitos todos los días sin fallar ni uno solo. Así como nuestra racha en TikTok, espero que lo nuestro siga creciendo por mucho, mucho tiempo más.</p>
+
+        <div class="stats-box">
+            <h2>365</h2>
+            <p>Días consecutivos de puro amor y constancia</p>
+        </div>
+
+        <button class="btn" onclick="revealMessage()">Presiona aquí ❤️</button>
+
+        <div class="secret-message" id="secretMsg">
+            <p>Gracias por estar siempre ahí, por cada TikTok compartido y por cada risa. ¡Eres mi persona favorita en el mundo! Te amo muchísimo. 🥰✨</p>
+        </div>
+    </div>
+
+    <script>
+        // Generar corazones flotantes automáticamente
+        const heartsContainer = document.getElementById('hearts-container');
+        const symbols = ['❤️', '🔥', '✨', '💖'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Mostrar mensaje secreto al hacer clic
+        function revealMessage() {
+            const msg = document.getElementById('secretMsg');
+            msg.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
